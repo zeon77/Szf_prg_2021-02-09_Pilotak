@@ -23,7 +23,11 @@ namespace Versenyzők
             //4.
             Console.WriteLine($"4. feladat: {pilóták.Last().Név}");
 
-            Console.ReadKey();
+            //5.
+            Console.WriteLine($"5. feladat: ");
+            pilóták.Where(x => x.SzületésiDátum < DateTime.Parse("1901-01-01"))
+                .ToList().ForEach(x => Console.WriteLine($"\t{x.Név} ({x.SzületésiDátum.ToString("yyyy. MM. dd.")})"));
+
         }
     }
 }
