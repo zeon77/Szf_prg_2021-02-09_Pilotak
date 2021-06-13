@@ -28,6 +28,9 @@ namespace Versenyzők
             pilóták.Where(x => x.SzületésiDátum < DateTime.Parse("1901-01-01"))
                 .ToList().ForEach(x => Console.WriteLine($"\t{x.Név} ({x.SzületésiDátum.ToString("yyyy. MM. dd.")})"));
 
+            //6.
+            Console.WriteLine($"6. feladat: " +
+                $"{pilóták.Where(x => x.Rajtszám != null).OrderBy(x => x.Rajtszám).First().Nemzetiség}");
         }
     }
 }
