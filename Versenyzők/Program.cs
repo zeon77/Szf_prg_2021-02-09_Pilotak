@@ -12,10 +12,7 @@ namespace Versenyzők
         {
             //2.
             List<Pilóta> pilóták = new List<Pilóta>();
-            foreach (var sor in File.ReadAllLines("pilotak.csv").Skip(1))
-            {
-                pilóták.Add(new Pilóta(sor));
-            }
+            foreach (var sor in File.ReadAllLines("pilotak.csv").Skip(1)) pilóták.Add(new Pilóta(sor));
 
             //3.
             Console.WriteLine($"3. feladat: {pilóták.Count}");
@@ -31,6 +28,13 @@ namespace Versenyzők
             //6.
             Console.WriteLine($"6. feladat: " +
                 $"{pilóták.Where(x => x.Rajtszám != null).OrderBy(x => x.Rajtszám).First().Nemzetiség}");
+
+            //7.
+            Console.Write($"7. feladat: ");
+            pilóták.Where(x => x.Rajtszám != null)
+                .GroupBy(x => x.Rajtszám).Where(gr => gr.Count() > 1)
+                .ToList().ForEach(x => Console.Write($"{x.Key}, "));
+            Console.WriteLine();
         }
     }
 }
