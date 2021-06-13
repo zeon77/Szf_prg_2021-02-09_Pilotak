@@ -10,6 +10,18 @@ namespace Versenyzők
     {
         static void Main(string[] args)
         {
+            //2.
+            List<Pilóta> pilóták = new List<Pilóta>();
+            foreach (var sor in File.ReadAllLines("pilotak.csv").Skip(1))
+            {
+                pilóták.Add(new Pilóta(sor));
+            }
+
+            //3.
+            Console.WriteLine($"3. feladat: {pilóták.Count}");
+
+            //4.
+            Console.WriteLine($"4. feladat: {pilóták.Last().Név}");
 
             Console.ReadKey();
         }
